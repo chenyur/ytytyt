@@ -7,8 +7,10 @@ const PORT = 8081;
 
 // App
 const app = express();
+
+
 app.get('/', function (req, res) {
-  res.send('ytytytttt\n');
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(PORT);
