@@ -5,19 +5,79 @@
     <title>YTYTYT</title>
   <style type="text/css">
 
+   input[type="text"], textarea {
+outline: none;
+box-shadow:none !important;
+border-bottom:0px solid #FFF !important;
+}
+
+      body
+    {
+    -webkit-appearance: none;
+    background: #000000 !important;
+    }
+
+input[type="text"]
+{
+    background: transparent;
+    border: none;
+    font-size:40px;
+    height: 100px;
+    color: FEFEFE;
+    font-weight: bold;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  /*
+  Nope =(
+  margin-left: -25%;
+  margin-top: -25%;
+  */
+
+  /*
+  Yep!
+  */
+  transform: translate(-50%, -50%);
+
+  /*
+  Not even necessary really.
+  e.g. Height could be left out!
+  */
+  width: 40%;
+  height: 50%;
+}
   </style>
   </head>
-  <body bgcolor="#000000">
+
+    <div class="row">
+        <div class="">
+            <div class="center">
+                 <form action="" method="get" size="50">
+                 <input id='box' class="form-control input-xxxlarge" name="songinfo" type="text" style="text-align:center;" autofocus="autofocus" onfocus="this.select()"></form>
+             </div><!-- /input-group -->
+    </div><!-- /.col-lg-4 -->
+</div><!-- /.container -->
+
+
+
+
 
   <script type="text/javascript">
    function autorun()
    {
+    var input = document.getElementById('box');
 
+    input.focus();
    }
    if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
    else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
    else window.onload = autorun;
   </script>
   </body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
 
