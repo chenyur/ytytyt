@@ -8,7 +8,8 @@
     "start": "nodejs server.js"
   },
   "dependencies": {
-    "express": "^4.13.3"
+    "body-parser": "^1.17.1",
+    "express": "^4.13.3",
+    "ytdl-core": "^0.13.2"
   }
 }
-

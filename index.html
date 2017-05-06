@@ -62,20 +62,46 @@ input[type="text"]
     </div><!-- /.col-lg-4 -->
 </div><!-- /.container -->
 
-
-
-
-
   <script type="text/javascript">
    function autorun()
    {
     var input = document.getElementById('box');
-
     input.focus();
+
+    var XHR = new XMLHttpRequest();
+    XHR.open("GET", "/version", true);
+	XHR.addEventListener('load', makeMusic);
+    XHR.send();
+
    }
+
+	function makeMusic() {
+	let data = JSON.parse(this.responseText);
+	console.log(data)
+    songname = "/public/audio" + data + ".mp3";
+    var audio = new Audio(songname);
+    console.log(songname);
+   if (typeof audio.loop == 'boolean')
+		{
+    		audio.loop = true;
+		}
+		else
+		{
+    	audio.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    	}, false);
+	}
+
+    audio.play();
+	}
+
+
    if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
    else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
    else window.onload = autorun;
+
+
   </script>
   </body>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

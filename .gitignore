@@ -1,3 +1,4 @@
+public/
 npm-debug.log
 .dockerignore
 node_modules/
