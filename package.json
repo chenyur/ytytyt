@@ -1,0 +1,14 @@
+{
+  "name": "ytytyt",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "Chenyu Ren <chenyu.ren@nyu.edu>",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodejs server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
+
