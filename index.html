@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>YTYTYT</title>
+    <title>ytytyt</title>
   <style type="text/css">
 
    input[type="text"], textarea {
@@ -72,15 +72,15 @@ input[type="text"]
     XHR.open("GET", "/version", true);
 	XHR.addEventListener('load', makeMusic);
     XHR.send();
-
    }
 
 	function makeMusic() {
 	let data = JSON.parse(this.responseText);
 	console.log(data)
     songname = "/public/audio" + data + ".mp3";
+    setTimeout(() => {
+    console.log("playing song " + songname);
     var audio = new Audio(songname);
-    console.log(songname);
    if (typeof audio.loop == 'boolean')
 		{
     		audio.loop = true;
@@ -92,9 +92,10 @@ input[type="text"]
         this.play();
     	}, false);
 	}
+        audio.play();
+    }, 2000); //2 seconds delay to avoid error 416!!!
+    }
 
-    audio.play();
-	}
 
 
    if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);

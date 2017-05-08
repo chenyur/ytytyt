@@ -1,6 +1,6 @@
 {
   "name": "ytytyt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node.js on Docker",
   "author": "Chenyu Ren <chenyu.ren@nyu.edu>",
   "main": "server.js",

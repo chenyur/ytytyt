@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
   if(typeof req.query.songinfo != "undefined")
   {
     console.log("downloading");
-
+    version++;
     ytdl(req.query.songinfo, { filter: "audioonly" } )
       .pipe(fs.createWriteStream("public/audio" + version + ".mp3"));
   }
@@ -31,10 +31,14 @@ app.get('/', function (req, res) {
 
 app.get('/version', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify(version));
   console.log("sending back version " + version);
-  version++;
+  setTimeout(delayedSend(res), 10000);
 });
+
+function delayedSend(res) {
+  console.log("delayed ajax response");
+  res.send(JSON.stringify(version));
+}
 
 app.listen(PORT);
 console.log('Running on http://localhost:' + PORT);
