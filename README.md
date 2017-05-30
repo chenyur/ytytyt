@@ -1,3 +1,9 @@
-## Repeats youtube, audio only
+## Repeats youtube audio
 
-youtubeyoutubeyoutube.com
+docker run -p 8081:8081 -dit --rm chenyur/ytytyt
+
+Uses https://github.com/OptimalBits/redbird
+
+Live at youtubeyoutubeyoutube.com
+
+
