@@ -3,61 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <title>ytytyt</title>
+    <link rel="stylesheet" href="public/styles.css">
   <style type="text/css">
-
-   input[type="text"], textarea {
-outline: none;
-box-shadow:none !important;
-border-bottom:0px solid #FFF !important;
-}
-
-      body
-    {
-    -webkit-appearance: none;
-    background: #000000 !important;
-    }
-
-input[type="text"]
-{
-    background: transparent;
-    border: none;
-    font-size:40px;
-    height: 100px;
-    color: FEFEFE;
-    font-weight: bold;
-}
-
-.center {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-
-  /*
-  Nope =(
-  margin-left: -25%;
-  margin-top: -25%;
-  */
-
-  /*
-  Yep!
-  */
-  transform: translate(-50%, -50%);
-
-  /*
-  Not even necessary really.
-  e.g. Height could be left out!
-  */
-  width: 40%;
-  height: 50%;
-}
   </style>
   </head>
-
     <div class="row">
         <div class="">
             <div class="center">
                  <form action="" method="get" size="50">
-                 <input id='box' class="form-control input-xxxlarge" name="songinfo" type="text" style="text-align:center;" autofocus="autofocus" onfocus="this.select()"></form>
+                 <input id='box' list="mylist" class="form-control input-xxxlarge" name="songinfo" type="text" style="text-align:center;" autofocus="autofocus" onfocus="this.select()"></form>
              </div><!-- /input-group -->
     </div><!-- /.col-lg-4 -->
 </div><!-- /.container -->
@@ -70,7 +24,7 @@ input[type="text"]
 
     var XHR = new XMLHttpRequest();
     XHR.open("GET", "/version", true);
-	XHR.addEventListener('load', makeMusic);
+	  XHR.addEventListener('load', makeMusic);
     XHR.send();
    }
 
