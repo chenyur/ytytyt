@@ -12,5 +12,5 @@ I use [OptimalBits/redbird](https://github.com/OptimalBits/redbird)
 - [x] Update search box with current song name
 - [ ] Store a cookie to play only your own last song
 - [ ] Switch background to song's album cover
-
+- [ ] Cache songs in a DB?
 

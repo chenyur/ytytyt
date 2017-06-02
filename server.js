@@ -27,9 +27,9 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 })
 app.get('/song', function (req, res) {
-    console.log(req.query.songinfo);
+  console.log(req.query.songinfo);
 
-    let youtubeID = "";
+  let youtubeID = "";
 
   if(typeof req.query.songinfo != "undefined" || req.query.songinfo == "")
   {
@@ -57,7 +57,7 @@ app.get('/song', function (req, res) {
         }
         
         ytdl(youtubeID, { filter: "audioonly" } )
-          .pipe(fs.createWriteStream("public/audio" + version + ".mp3"));
+        .pipe(fs.createWriteStream("public/audio" + version + ".mp3"));
         console.log("saved v" + version + "; songinfo: " + req.query.songinfo);
       }
     });
