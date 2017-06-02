@@ -13,6 +13,7 @@ const debug = true;
 const PORT = 8084;
 let bodyParser = require('body-parser');
 let version = 0;
+let songName = "";
 youTube.setKey('AIzaSyAcRLK98ehKQFGQIp7rXeDyu255NrCOosE');
 
 // App
@@ -22,11 +23,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use("/public", express.static(__dirname + '/public', { maxAge: veryShortTime }));
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+})
+app.get('/song', function (req, res) {
+    console.log(req.query.songinfo);
 
-  let youtubeID = "";
+    let youtubeID = "";
 
-  if(typeof req.query.songinfo != "undefined")
+  if(typeof req.query.songinfo != "undefined" || req.query.songinfo == "")
   {
     youTube.addParam('type', 'video');
     youTube.search(req.query.songinfo, 1, function(error, result) 
@@ -36,6 +41,10 @@ app.get('/', function (req, res) {
       }
       else {
         youtubeID = result.items[0].id.videoId, null, 2;
+        songName = result.items[0].snippet.title;
+        res.setHeader('Content-Type', 'application/json');
+        res.send(songName);
+        console.log(songName);
         version++;
         if (debug)
         {
@@ -53,8 +62,6 @@ app.get('/', function (req, res) {
       }
     });
   }
-
-  res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/version', function (req, res) 

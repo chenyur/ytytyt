@@ -10,54 +10,14 @@
     <div class="row">
         <div class="">
             <div class="center">
-                 <form action="" method="get" size="50">
-                 <input id='box' list="mylist" class="form-control input-xxxlarge" name="songinfo" type="text" style="text-align:center;" autofocus="autofocus" onfocus="this.select()"></form>
+                 <form size="50">
+                 <input id='box' class="form-control input-xxxlarge" name="songinfo" type="text" style="text-align:center;" autofocus="autofocus" onfocus="this.select()" v-on:keydown.enter.prevent='onSubmit'></form>
+                 <input type="text" style="display:none;">
              </div><!-- /input-group -->
     </div><!-- /.col-lg-4 -->
 </div><!-- /.container -->
-
-  <script type="text/javascript">
-   function autorun()
-   {
-    var input = document.getElementById('box');
-    input.focus();
-
-    var XHR = new XMLHttpRequest();
-    XHR.open("GET", "/version", true);
-	  XHR.addEventListener('load', makeMusic);
-    XHR.send();
-   }
-
-	function makeMusic() {
-	let data = JSON.parse(this.responseText);
-	console.log(data)
-    songname = "/public/audio" + data + ".mp3";
-    setTimeout(() => {
-    console.log("playing song " + songname);
-    var audio = new Audio(songname);
-   if (typeof audio.loop == 'boolean')
-		{
-    		audio.loop = true;
-		}
-		else
-		{
-    	audio.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play();
-    	}, false);
-	}
-        audio.play();
-    }, 2000); //2 seconds delay to avoid error 416!!!
-    }
-
-
-
-   if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
-   else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
-   else window.onload = autorun;
-
-
-  </script>
+   <script src="https://unpkg.com/vue"></script>
+   <script src="public/index.js"></script>
   </body>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
