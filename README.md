@@ -1,16 +1,25 @@
 ## Repeats youtube audio
 
-docker run -p 8081:8081 -dit --rm chenyur/ytytyt
-
 Live at http://youtubeyoutubeyoutube.com
 
-I use [OptimalBits/redbird](https://github.com/OptimalBits/redbird)
+#To run
 
-- [x] Basic function with full URL input
-- [x] Plays the last played song
+```
+docker build -t (your tag) .
+docker run -p 8081:8081 -dit --rm (your tag)
+```
+
+I use [OptimalBits/redbird](https://github.com/OptimalBits/redbird) for reverse proxy.
+
+- [x] Basic function with a full URL input
+- [x] Repeats current song
 - [x] Song search with youtube API
 - [x] Update search box with current song name
-- [ ] Store a cookie to play only your own last song
 - [ ] Switch background to song's album cover
-- [ ] Cache songs in a DB?
 
+Further down the road..
+
+- [ ] A playlist
+- [ ] Cookie the playlist
+- [ ] Cache songs in a NoSQL database
+- [ ] A login system
