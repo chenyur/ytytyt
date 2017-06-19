@@ -1,0 +1,39 @@
+  input[type="text"], textarea {
+    outline: none;
+    border-bottom:1px solid #26416d !important;
+  }
+
+  body
+  {
+    -webkit-appearance: none;
+    background: #000000 !important;
+  }
+
+  input[type="text"]
+  {
+    background: transparent;
+    border: none;
+    font-size:40px;
+    height: 100px;
+    color: FEFEFE;
+    font-weight: bold;
+  }
+
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+  /*
+  Nope =(
+  margin-left: -25%;
+  margin-top: -25%;
+  */
+
+  /*
+  Yep!
+  */
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 50%;
+}
